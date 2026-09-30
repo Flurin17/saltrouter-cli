@@ -1,0 +1,49 @@
+[project]
+name = "saltrouter-cli"
+version = "0.1.0"
+description = "Agent-first CLI and Python client for Salt Fiber Box (Sagemcom F@st / XMO API) routers"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Flurin", email = "flurin.laim@gmail.com" }
+]
+keywords = ["salt", "sagemcom", "router", "fiber-box", "xmo", "cli", "ai-agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Networking",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.14"
+dependencies = [
+    "click>=8.5.0",
+    "httpx>=0.28.1",
+]
+
+[project.scripts]
+saltrouter = "saltrouter_cli:main"
+
+[build-system]
+requires = ["hatchling>=1.32.4"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+exclude = [".env", ".env.*", "*.json.bak"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.9",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
