@@ -25,6 +25,10 @@ dependencies = [
     "httpx>=0.28.1",
 ]
 
+[project.urls]
+Homepage = "https://github.com/Flurin17/saltrouter-cli"
+Issues = "https://github.com/Flurin17/saltrouter-cli/issues"
+
 [project.scripts]
 saltrouter = "saltrouter_cli:main"
 
